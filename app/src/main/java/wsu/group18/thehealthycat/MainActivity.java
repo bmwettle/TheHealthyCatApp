@@ -30,11 +30,14 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         boolean hasStarted = prefs.getBoolean("hasStarted", true);
 
-        if (hasStarted) {
+        cat = new Cat();
+
+        if (!hasStarted) {
             showStartupDialog();
         }
 
-        initializeCatClass();
+
+       // initializeCatClass();
     }
 
     public void OpenChartActivity(View v){
@@ -44,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void OpenSettingsActivity(View v){
         Intent intent = new Intent(this, SettingsActivity.class);
+        intent.putExtra("CAT_NAME", cat.Name);
+        intent.putExtra("CAT_TARGET_WEIGHT", cat.TargetWeightLBS);
+        intent.putExtra("CAT_CURRENT_WEIGHT", cat.CurrentWeightLBS);
         startActivity(intent);
     }
 
@@ -73,15 +79,17 @@ public class MainActivity extends AppCompatActivity {
         final EditText targetWeightInput = (EditText) startupDialogView.findViewById(R.id.target_weight);
         builder.setView(startupDialogView);
 
+
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //TO-DO Save Input name and target weight to Cat object
+               // cat = new Cat(catNameInput.getText().toString(), Double.parseDouble(targetWeightInput.getText().toString()), 0.0, new ArrayList());
 
-                //catName = catNameInput.getText().toString();
-                //targetWeight = targetWeightInput.getText().toString();
+                cat.setName(catNameInput.getText().toString());
+                cat.setTargetWeightLBS(Double.parseDouble(targetWeightInput.getText().toString()));
             }
         });
+
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
