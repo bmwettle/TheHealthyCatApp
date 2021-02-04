@@ -20,37 +20,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="15dp"
-        android:textSize="25dp"
-        android:text="Cat Name: "/>
-
-
-    <EditText
-        android:layout_width="242dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="145dp"
-        android:inputType="text" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="25dp"
-        android:text="Cat Weight: "/>
-
-    <TextView
-        android:layout_width="242dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="125dp"
-        android:layout_marginLeft="145dp"
-        android:inputType="text" />
-
     <include layout="@layout/content_cat_info" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
