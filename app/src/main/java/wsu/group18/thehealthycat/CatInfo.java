@@ -28,10 +28,6 @@ public class CatInfo extends AppCompatActivity {
         cCurrentWeight = findViewById(R.id.CurrentWeightVal);
         cTargetWeight = findViewById(R.id.TargetWeightVal);
 
-        String a = getIntent().getStringExtra("CAT_NAME");
-        String b =  String.valueOf(getIntent().getDoubleExtra("CAT_TARGET_WEIGHT", 0.0));
-        String c = String.valueOf(getIntent().getDoubleExtra("CAT_CURRENT_WEIGHT", 0.0));
-
         cName.setText(getIntent().getStringExtra("CAT_NAME"));
         cTargetWeight.setText(String.valueOf(getIntent().getDoubleExtra("CAT_TARGET_WEIGHT", 0.0)));
         cCurrentWeight.setText(String.valueOf(getIntent().getDoubleExtra("CAT_CURRENT_WEIGHT", 0.0)));
