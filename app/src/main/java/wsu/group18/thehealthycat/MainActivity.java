@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     public Cat cat;
 
-    public String ChartButton = "Chart";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +30,20 @@ public class MainActivity extends AppCompatActivity {
 
         cat = new Cat();
 
+        //The following code executes if returning from the settings activity with saved changes.
+        String settingsName = getIntent().getStringExtra("CAT_NAME");
+        double settingsTargetWeight = getIntent().getDoubleExtra("CAT_TARGET_WEIGHT", 0.0);
+        if(settingsName != null){
+            cat.setName(settingsName);
+        }
+        if(settingsTargetWeight != 0.0){
+            cat.setTargetWeightLBS(settingsTargetWeight);
+        }
+
         if (!hasStarted) {
             showStartupDialog();
         }
 
-
-       // initializeCatClass();
     }
 
     public void OpenChartActivity(View v){
@@ -59,14 +65,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("CAT_TARGET_WEIGHT", cat.TargetWeightLBS);
         intent.putExtra("CAT_CURRENT_WEIGHT", cat.CurrentWeightLBS);
         startActivity(intent);
-    }
-
-    private void initializeCatClass(){
-        // TO-DO: This is where we will communicate between the cat feeder and the app to get all the necessary cat info.
-
-        //The following is hard coded values for test purposes:
-        List l = new ArrayList<>();
-        cat = new Cat("Fred", 7.0, 10.0, l);
     }
 
     private void showStartupDialog() {

@@ -15,6 +15,10 @@
     <string name="cat_info_button">Cat Info</string>
     <string name="title_activity_cat_info">CatInfo</string>
     <string name="cat_name">Cat Name:</string>
+    <string name="cat_name2">Cat Name</string>
     <string name="current_weight">Current Weight:</string>
     <string name="target_weight">Target Weight:</string>
+    <string name="target_weight2">Target Weight in Pounds (lb)</string>
+    <string name="SaveButton">Save</string>
+    <string name="CancelButton">Cancel</string>
 </resources>
