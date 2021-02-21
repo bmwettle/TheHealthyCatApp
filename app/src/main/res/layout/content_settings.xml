@@ -30,7 +30,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="65dp"
         android:layout_marginLeft="65dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NameLayout">
 
@@ -48,9 +48,9 @@
         android:layout_height="300dp"
         android:layout_marginStart="65dp"
         android:layout_marginLeft="65dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/SettingsSaveButton"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/SettingsSaveButton"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginLeft="104dp"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="410dp"
         android:clickable="false"
         android:onClick="OnSave"
         android:text="@string/SaveButton"
@@ -69,12 +69,30 @@
         android:id="@+id/SettingsCancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="410dp"
         android:layout_marginEnd="104dp"
         android:layout_marginRight="104dp"
         android:onClick="OnCancel"
         android:text="@string/CancelButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TargetWeightLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/FeedingFrequencyLayout"
+        android:layout_width="280dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TargetWeightLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/FeedingFrequencyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/FrequencyFieldText"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

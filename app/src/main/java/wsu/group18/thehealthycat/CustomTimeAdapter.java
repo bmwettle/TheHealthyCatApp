@@ -26,6 +26,12 @@ public class CustomTimeAdapter extends RecyclerView.Adapter<CustomTimeAdapter.My
         this.editModelArrayList = editModelArrayList;
     }
 
+    public void UpdateList(ArrayList<TimeEditModel> List){
+        editModelArrayList.clear();
+        editModelArrayList.addAll(List);
+        notifyDataSetChanged();
+    }
+
     @Override
     public CustomTimeAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 

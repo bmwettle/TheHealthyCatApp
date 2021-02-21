@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textColor="#000"
-                android:text="TextView:"/>
+                android:text="Time:"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:layout_marginTop="10dp"
                 android:paddingLeft="10dp"
                 android:textColor="#000"
-                android:text="hello"
+                android:inputType="time"
                 />
 
         </LinearLayout>

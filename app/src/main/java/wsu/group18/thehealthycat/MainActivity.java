@@ -53,17 +53,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void OpenSettingsActivity(View v){
         Intent intent = new Intent(this, SettingsActivity.class);
-        intent.putExtra("CAT_NAME", cat.Name);
-        intent.putExtra("CAT_TARGET_WEIGHT", cat.TargetWeightLBS);
-        intent.putExtra("CAT_CURRENT_WEIGHT", cat.CurrentWeightLBS);
+        intent.putExtra("CAT_NAME", cat.getName());
+        intent.putExtra("CAT_TARGET_WEIGHT", cat.getTargetWeightLBS());
+        intent.putExtra("CAT_CURRENT_WEIGHT", cat.getCurrentWeightLBS());
         startActivity(intent);
     }
 
     public void OpenCatInfoActivity(View v){
         Intent intent = new Intent(this, CatInfo.class);
-        intent.putExtra("CAT_NAME", cat.Name);
-        intent.putExtra("CAT_TARGET_WEIGHT", cat.TargetWeightLBS);
-        intent.putExtra("CAT_CURRENT_WEIGHT", cat.CurrentWeightLBS);
+        intent.putExtra("CAT_NAME", cat.getName());
+        intent.putExtra("CAT_TARGET_WEIGHT", cat.getTargetWeightLBS());
+        intent.putExtra("CAT_CURRENT_WEIGHT", cat.getCurrentWeightLBS());
         startActivity(intent);
     }
 
