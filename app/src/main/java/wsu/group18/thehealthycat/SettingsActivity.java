@@ -1,12 +1,14 @@
 package wsu.group18.thehealthycat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,8 +20,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class SettingsActivity extends AppCompatActivity {
 
     private TextInputEditText cName;
@@ -105,9 +110,12 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void OnSave(View v){
+        ArrayList<LocalTime> timeList = ConvertList(editModelArrayList);
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("CAT_NAME", cName.getText().toString());
         intent.putExtra("CAT_TARGET_WEIGHT", Double.parseDouble(cTargetWeight.getText().toString()));
+        intent.putExtra("TIME_LIST", timeList);
         startActivity(intent);
     }
 
@@ -122,6 +130,27 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         return list;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public ArrayList<LocalTime> ConvertList(ArrayList<TimeEditModel> editList){
+        ArrayList<LocalTime> timeList = new ArrayList<>();
+        for(int i = 0; i < editList.size(); i++){
+            try {
+                String s = editList.get(i).getEditTextValue();
+                if(s.length() == 4 && s.contains(":")){
+                    s = "0" + s;
+                }
+                else if(s.length() < 4 || s.length() > 5 || !s.contains(":")){
+                    continue;
+                }
+                LocalTime time = LocalTime.parse(s);
+                timeList.add(time);
+            } catch (DateTimeParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return timeList;
     }
 
     public int getFeedingFrequency(){return feedingFrequency;};

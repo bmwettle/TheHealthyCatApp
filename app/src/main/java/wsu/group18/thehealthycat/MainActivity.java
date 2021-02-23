@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,11 +34,15 @@ public class MainActivity extends AppCompatActivity {
         //The following code executes if returning from the settings activity with saved changes.
         String settingsName = getIntent().getStringExtra("CAT_NAME");
         double settingsTargetWeight = getIntent().getDoubleExtra("CAT_TARGET_WEIGHT", 0.0);
+        ArrayList<LocalTime> timeList = (ArrayList<LocalTime>) getIntent().getSerializableExtra("TIME_LIST");
         if(settingsName != null){
             cat.setName(settingsName);
         }
         if(settingsTargetWeight != 0.0){
             cat.setTargetWeightLBS(settingsTargetWeight);
+        }
+        if(timeList != null){
+            cat.setFeedingTimes(timeList);
         }
 
         if (!hasStarted) {
